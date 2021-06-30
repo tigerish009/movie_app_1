@@ -27,19 +27,30 @@ class App extends React.Component {
     // 원래는 div 안에 this.state.isLoading이라고 써줘야 하지만 ES6기능을 통해 const로 설정해줄수 있음
     const { isLoading, movies } = this.state;
     // javascript의 삼항연산자 - isLoading이 true면 loading, false면 We are ready
-    return <div>{isLoading ? "Loading..." 
-      : movies.map(movie => (
-         <Movie 
-          key={movie.id}
-          id={movie.id} 
-          year={movie.year} 
-          title={movie.title} 
-          summary={movie.summary} 
-          poster={movie.medium_cover_image} 
-        />
-      )
-      )}
-      </div>
+    return (
+      <section class="container">
+        {isLoading ? (
+          <div class="loader">
+            <span class="loader__text">Loading...</span>
+          </div>
+        ) : (
+          <div class="movies">
+            {movies.map(movie => (
+              <Movie 
+                key={movie.id}
+                id={movie.id} 
+                year={movie.year} 
+                title={movie.title} 
+                summary={movie.summary} 
+                poster={movie.medium_cover_image} 
+              />
+            )
+            )}
+          </div>
+        )
+        }
+      </section>
+    )
   }
 }
 
