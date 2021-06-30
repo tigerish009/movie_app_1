@@ -13,10 +13,14 @@ class App extends React.Component {
     count: 0
   }
   add = () => {
-    console.log("add");
+    // state에서는 직접 object값을 변경해선 안되며, this.setState를 통하여 데이터를 변경해준다. 이렇게 하면 react가 값이 변경될때마다 필요한부분만 찾아서 refresh & render 해준다
+    // this.setState({count: this.state.count + 1});
+    // current를 이용하는것이 외부에 영향받지 않는 현재 state를 자동으로 불러와 처리하는 좋은 방법
+    this.setState(current => ({ count : current.count + 1}));
   }
   minus = () => {
-    console.log("minus");
+    // this.setState({count: this.state.count - 1});
+    this.setState(current => ({ count : current.count -1 }));
   }
   render(){
     return (
