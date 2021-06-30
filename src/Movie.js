@@ -9,13 +9,13 @@ function Movie({year, title, summary, poster, genres}) {
             <div className="movie_data">
                 <h3 className="movie__title">{title}</h3>
                 <h5 className="movie__year">{year}</h5>
-                <ul className="genres">
+                <ul className="movie__genres">
                     {/* map은 자동으로 2번째 인자(index)에 key값을 부여해준다  */}
                     {genres.map((genre, index) => (
                         <li key={index} className="genres__genre">{genre}</li>
                     ))}
                 </ul>
-                <p className="movie__summary">{summary}</p>
+                <p className="movie__summary">{summary.slice(0, 50)}.....</p>
             </div>
         </div>
     )
