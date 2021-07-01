@@ -14,7 +14,7 @@ function App() {
         {/* 2개의 props이며, path로 가면, component를 보여준다 */}
         <Route path="/" exact={true} component={Home} />
         <Route path="/about" component={About} />
-        <Route path="/movie-detail" component={Detail} />
+        <Route path="/movie/:id" component={Detail} />
     </HashRouter>
     );
 }
